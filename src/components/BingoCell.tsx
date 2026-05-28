@@ -35,7 +35,7 @@ export default function BingoCell({
   const bg = isMarked ? theme.markedBg : baseBg;
   const textCol = isMarked ? '#ffffff' : (cell.textColor || theme.textColor);
   const fontFamily = cell.font || theme.font;
-  const fontSize = cell.fontSize || 'clamp(0.55rem, 1.6vw, 0.88rem)';
+  const fontSize = cell.fontSize || 'clamp(0.85rem, 2.5vw, 1.3rem)';
 
   return (
     <div

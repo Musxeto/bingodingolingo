@@ -33,10 +33,10 @@ const FONT_OPTIONS = [
 ];
 
 const FONT_SIZES = [
-  { label: 'Small', value: 'clamp(0.45rem, 1.2vw, 0.7rem)' },
-  { label: 'Normal', value: 'clamp(0.55rem, 1.6vw, 0.88rem)' },
-  { label: 'Large', value: 'clamp(0.7rem, 2.2vw, 1.2rem)' },
-  { label: 'X-Large', value: 'clamp(1rem, 3vw, 1.6rem)' },
+  { label: 'Small', value: 'clamp(0.6rem, 1.8vw, 1rem)' },
+  { label: 'Normal', value: 'clamp(0.85rem, 2.5vw, 1.3rem)' },
+  { label: 'Large', value: 'clamp(1.1rem, 3.2vw, 1.8rem)' },
+  { label: 'X-Large', value: 'clamp(1.5rem, 4.5vw, 2.5rem)' },
 ];
 
 const labelCls = 'block text-sm font-bold mb-1 tracking-wide uppercase';
@@ -110,7 +110,7 @@ export default function ControlPanel({
           <div>
             <label className={labelCls} style={{ fontFamily: theme.font, color: '#1a1a1a' }}>Font Size</label>
             <select
-              value={selectedCell.fontSize || 'clamp(0.55rem, 1.6vw, 0.88rem)'}
+              value={selectedCell.fontSize || 'clamp(0.85rem, 2.5vw, 1.3rem)'}
               onChange={(e) => onUpdateCellStyle(selectedCell.id, { fontSize: e.target.value })}
               className={inputCls}
               style={{ fontFamily: theme.font }}
