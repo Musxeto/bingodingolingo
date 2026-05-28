@@ -35,8 +35,8 @@ const FONT_OPTIONS = [
 const FONT_SIZES = [
   { label: 'Small', value: 'clamp(0.6rem, 1.8vw, 1rem)' },
   { label: 'Normal', value: 'clamp(0.85rem, 2.5vw, 1.3rem)' },
-  { label: 'Large', value: 'clamp(1.1rem, 3.2vw, 1.8rem)' },
-  { label: 'X-Large', value: 'clamp(1.5rem, 4.5vw, 2.5rem)' },
+  { label: 'Large', value: 'clamp(1rem, 3vw, 1.6rem)' },
+  { label: 'X-Large', value: 'clamp(1.25rem, 3.8vw, 2.1rem)' },
 ];
 
 const labelCls = 'block text-sm font-bold mb-1 tracking-wide uppercase';
