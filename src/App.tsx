@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback } from 'react';
+import { useRef, useState, useCallback } from 'react';
 import { toPng } from 'html-to-image';
 import TopNavbar from './components/TopNavbar';
 import BingoGrid from './components/BingoGrid';

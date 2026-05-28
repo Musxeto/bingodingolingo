@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { THEMES } from '../types';
 import type { Theme, BingoCellData } from '../types';
 

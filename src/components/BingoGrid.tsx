@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import BingoCell from './BingoCell';
 import type { BingoCellData, Theme } from '../types';
 
