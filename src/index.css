@@ -1,13 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Permanent+Marker&family=Indie+Flower&family=Kalam:wght@300;400;700&family=Patrick+Hand&family=Rock+Salt&display=swap');
 @import "tailwindcss";
 
+/* ── Local Fonts ── */
+@font-face { font-family: 'Handwritten Madness'; src: url('/fonts/HandwrittenMadness-Regular.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Jakarta Handwritten'; src: url('/fonts/Jakarta Handwritten.otf') format('opentype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Messy Handwritten'; src: url('/fonts/MessyHandwritten-Regular.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'My Kids Handwritten'; src: url('/fonts/My Kids Handwritten-Basic.woff2') format('woff2'), url('/fonts/My Kids Handwritten-Basic.woff') format('woff'), url('/fonts/My Kids Handwritten-Basic.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Pencilant Script'; src: url('/fonts/Pencilant Script.otf') format('opentype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Ramidots'; src: url('/fonts/Ramidots.otf') format('opentype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Ramidots'; src: url('/fonts/Ramidots Italic.otf') format('opentype'); font-weight: normal; font-style: italic; }
+@font-face { font-family: 'Rockybilly'; src: url('/fonts/Rockybilly.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; }
 
 body {
   background: #f5f0e8;
   min-height: 100vh;
-  font-family: 'Caveat', cursive;
+  font-family: 'Handwritten Madness', cursive;
   color: #1a1a1a;
 }
 
