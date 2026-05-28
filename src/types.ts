@@ -2,6 +2,10 @@ export interface BingoCellData {
   id: number;
   text: string;
   isFreeSpace: boolean;
+  font?: string;
+  fontSize?: string;
+  textColor?: string;
+  bgColor?: string;
 }
 
 export interface Theme {
@@ -61,7 +65,7 @@ export const THEMES: Theme[] = [
     headerColors: ['#ff6b6b', '#ffa94d', '#ffe066', '#69db7c', '#74c0fc'],
     titleColor: '#1a1a1a',
     textColor: '#1a1a1a',
-    font: "'Caveat', cursive",
+    font: "'Handwritten Madness', cursive",
     markedBg: '#1a1a1a',
     markedBorderColor: '#1a1a1a',
   },
@@ -74,7 +78,7 @@ export const THEMES: Theme[] = [
     headerColors: ['#f783ac', '#ffa94d', '#ffe066', '#69db7c', '#a9e34b'],
     titleColor: '#d63384',
     textColor: '#2d1a3d',
-    font: "'Indie Flower', cursive",
+    font: "'Handwritten Madness', cursive",
     markedBg: '#d63384',
     markedBorderColor: '#2d1a3d',
   },
@@ -87,7 +91,7 @@ export const THEMES: Theme[] = [
     headerColors: ['#74c0fc', '#4dabf7', '#339af0', '#228be6', '#1c7ed6'],
     titleColor: '#003566',
     textColor: '#003566',
-    font: "'Patrick Hand', cursive",
+    font: "'Handwritten Madness', cursive",
     markedBg: '#003566',
     markedBorderColor: '#003566',
   },
@@ -100,7 +104,7 @@ export const THEMES: Theme[] = [
     headerColors: ['#ff6b6b', '#ff922b', '#fcc419', '#ff6b6b', '#ff922b'],
     titleColor: '#c1440e',
     textColor: '#3d1a00',
-    font: "'Kalam', cursive",
+    font: "'Handwritten Madness', cursive",
     markedBg: '#c1440e',
     markedBorderColor: '#6d2323',
   },
