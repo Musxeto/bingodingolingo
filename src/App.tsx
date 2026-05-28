@@ -1,5 +1,5 @@
 import React, { useRef, useState, useCallback } from 'react';
-import html2canvas from 'html2canvas';
+import { toPng } from 'html-to-image';
 import TopNavbar from './components/TopNavbar';
 import BingoGrid from './components/BingoGrid';
 import ControlPanel from './components/ControlPanel';
@@ -67,15 +67,13 @@ export default function App() {
     await new Promise(r => setTimeout(r, 50));
 
     try {
-      const canvas = await html2canvas(cardRef.current, {
-        useCORS: true,
-        scale: 3,
-        logging: false,
-        backgroundColor: null,
+      const dataUrl = await toPng(cardRef.current, {
+        pixelRatio: 3,
+        cacheBust: true,
+        skipFonts: false,
       });
-      const url = canvas.toDataURL('image/png');
       const a = document.createElement('a');
-      a.href = url;
+      a.href = dataUrl;
       a.download = `bingodingo-${Date.now()}.png`;
       document.body.appendChild(a);
       a.click();

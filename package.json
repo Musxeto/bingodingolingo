@@ -10,8 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@types/html2canvas": "^0.5.35",
-    "html2canvas": "^1.4.1",
+    "html-to-image": "^1.11.13",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },

@@ -79,10 +79,10 @@ body {
   text-align: center;
   font-family: inherit;
   font-size: clamp(0.85rem, 2.5vw, 1.3rem);
-  line-height: 1;
+  line-height: 1.25;
   cursor: text;
   color: inherit;
-  padding: 2px;
+  padding: 4px;
   overflow: hidden;
   position: relative;
   z-index: 2;
