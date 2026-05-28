@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Permanent+Marker&family=Indie+Flower&family=Kalam:wght@300;400;700&family=Patrick+Hand&family=Rock+Salt&display=swap');
+@import "tailwindcss";
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background: #f5f0e8;
+  min-height: 100vh;
+  font-family: 'Caveat', cursive;
+  color: #1a1a1a;
+}
+
+#root { min-height: 100vh; }
+
+/* ── Bingo cell hand-drawn micro-rotations ── */
+.bingo-cell:nth-child(5n+1) { transform: rotate(-0.4deg); }
+.bingo-cell:nth-child(5n+2) { transform: rotate(0.3deg); }
+.bingo-cell:nth-child(5n+3) { transform: rotate(-0.2deg); }
+.bingo-cell:nth-child(5n+4) { transform: rotate(0.5deg); }
+.bingo-cell:nth-child(5n+5) { transform: rotate(-0.3deg); }
+
+.bingo-cell {
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.bingo-cell:hover {
+  transform: rotate(0deg) scale(1.03) !important;
+  z-index: 5;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+}
+
+/* ── BINGO header letter micro-rotations ── */
+.header-letter:nth-child(1) { transform: rotate(-1.2deg); }
+.header-letter:nth-child(2) { transform: rotate(0.8deg); }
+.header-letter:nth-child(3) { transform: rotate(-0.5deg); }
+.header-letter:nth-child(4) { transform: rotate(1deg); }
+.header-letter:nth-child(5) { transform: rotate(-0.7deg); }
+
+/* ── Card title hand-drawn tilt ── */
+.card-title {
+  display: inline-block;
+  transform: rotate(-0.8deg);
+}
+
+/* ── Stamp / cross-out animation ── */
+@keyframes stampIn {
+  0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
+  70%  { transform: scale(1.1) rotate(4deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+.stamp-in { animation: stampIn 0.28s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; }
+
+/* ── FREE SPACE spinning asterisk ── */
+@keyframes spinStar {
+  to { transform: rotate(360deg); }
+}
+.spin-star { animation: spinStar 9s linear infinite; display: inline-block; }
+
+/* ── Textarea inside cell ── */
+.cell-textarea {
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-family: inherit;
+  font-size: clamp(0.55rem, 1.6vw, 0.88rem);
+  line-height: 1.3;
+  cursor: text;
+  color: inherit;
+  padding: 4px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+.cell-textarea::placeholder {
+  opacity: 0.35;
+  font-style: italic;
+}
+
+/* ── Color swatch input ── */
+.color-swatch {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2.5px solid #1a1a1a;
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+  transition: transform 0.12s;
+}
+.color-swatch:hover { transform: scale(1.1); }
+.color-swatch::-webkit-color-swatch-wrapper { padding: 0; }
+.color-swatch::-webkit-color-swatch { border: none; border-radius: 50%; }
+
+/* ── Custom scrollbar (light) ── */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: #f0ece0; }
+::-webkit-scrollbar-thumb { background: #c0b89a; border-radius: 4px; }
