@@ -29,7 +29,7 @@ export default function BingoCell({
       textareaRef.current.style.height = 'auto';
       textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px';
     }
-  }, [cell.text]);
+  }, [cell.text, cell.font, cell.fontSize, theme.font]);
 
   const baseBg = cell.bgColor || theme.cellColors[cellIndex % theme.cellColors.length];
   const bg = isMarked ? theme.markedBg : baseBg;
@@ -65,17 +65,26 @@ export default function BingoCell({
         </div>
       )}
 
+      {/* Actual textarea for user input (hidden during export) */}
       <textarea
         ref={textareaRef}
         value={cell.text}
         onChange={(e) => { e.stopPropagation(); onTextChange(cell.id, e.target.value); }}
         onClick={(e) => { e.stopPropagation(); onSelect(); }}
         onFocus={() => onSelect()}
-        className="cell-textarea"
+        className="cell-textarea hide-on-export"
         style={{ fontFamily: fontFamily, fontSize: fontSize, color: textCol, opacity: isMarked ? 0.3 : 1 }}
         maxLength={60}
         placeholder="write here..."
       />
+
+      {/* Div strictly for html2canvas rendering (hidden normally, visible during export) */}
+      <div 
+        className="cell-textarea show-on-export flex items-center justify-center"
+        style={{ fontFamily: fontFamily, fontSize: fontSize, color: textCol, opacity: isMarked ? 0.3 : 1, display: 'none', whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}
+      >
+        {cell.text}
+      </div>
 
       {/* overlay to mark — sits on top only when cell is marked so user can still type */}
       {isMarked && (

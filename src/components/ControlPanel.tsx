@@ -55,7 +55,7 @@ export default function ControlPanel({
 
   return (
     <div
-      className="sticky top-6 flex flex-col gap-4 overflow-y-auto"
+      className="sticky top-6 flex flex-col gap-4"
       style={{
         backgroundColor: '#fffef8',
         border: '2.5px solid #1a1a1a',
@@ -63,7 +63,6 @@ export default function ControlPanel({
         padding: '1.5rem',
         boxShadow: '3px 4px 0 rgba(0,0,0,0.18)',
         fontFamily: theme.font,
-        maxHeight: 'calc(100vh - 100px)',
       }}
     >
       {/* Panel header */}

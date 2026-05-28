@@ -74,11 +74,12 @@ body {
   outline: none;
   resize: none;
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: 100%;
   text-align: center;
   font-family: inherit;
   font-size: clamp(0.85rem, 2.5vw, 1.3rem);
-  line-height: 1.3;
+  line-height: 1.1;
   cursor: text;
   color: inherit;
   padding: 4px;
@@ -89,6 +90,14 @@ body {
 .cell-textarea::placeholder {
   opacity: 0.35;
   font-style: italic;
+}
+
+/* ── Export overrides for html2canvas ── */
+.is-exporting .hide-on-export {
+  display: none !important;
+}
+.is-exporting .show-on-export {
+  display: flex !important;
 }
 
 /* ── Color swatch input ── */

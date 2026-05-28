@@ -59,6 +59,13 @@ export default function App() {
   const handleExport = useCallback(async () => {
     if (!cardRef.current) return;
     setIsExporting(true);
+    
+    // Add exporting class to show the div and hide the textarea
+    cardRef.current.classList.add('is-exporting');
+    
+    // Wait a brief moment for the DOM to apply the display swaps
+    await new Promise(r => setTimeout(r, 50));
+
     try {
       const canvas = await html2canvas(cardRef.current, {
         useCORS: true,
@@ -77,6 +84,7 @@ export default function App() {
       console.error(err);
       alert('Export failed. Please try again.');
     } finally {
+      cardRef.current.classList.remove('is-exporting');
       setIsExporting(false);
     }
   }, []);
