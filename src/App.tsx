@@ -3,6 +3,7 @@ import { toPng } from 'html-to-image';
 import TopNavbar from './components/TopNavbar';
 import BingoGrid from './components/BingoGrid';
 import ControlPanel from './components/ControlPanel';
+import ConfirmModal from './components/ConfirmModal';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { THEMES, createInitialCells } from './types';
 import type { BingoCellData, Theme } from './types';
@@ -13,6 +14,7 @@ export default function App() {
   const [title, setTitle] = useLocalStorage<string>('bingo-title-v3', 'My Bingo Card');
   const [markedCells, setMarkedCells] = useState<Set<number>>(new Set([12]));
   const [isExporting, setIsExporting] = useState(false);
+  const [isResetModalOpen, setIsResetModalOpen] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
   const [selectedCellId, setSelectedCellId] = useState<number | null>(null);
@@ -50,11 +52,18 @@ export default function App() {
   }, [setCells]);
 
   const handleReset = useCallback(() => {
-    if (window.confirm('Clear all cells? This cannot be undone.')) {
-      setCells(createInitialCells());
-      setMarkedCells(new Set([12]));
-    }
-  }, [setCells]);
+    localStorage.removeItem('bingo-cells-v3');
+    localStorage.removeItem('bingo-theme-v3');
+    localStorage.removeItem('bingo-title-v3');
+    
+    setCells(createInitialCells());
+    setTheme(THEMES[0]);
+    setTitle('My Bingo Card');
+    setMarkedCells(new Set([12]));
+    setSelectedCellId(null);
+  }, [setCells, setTheme, setTitle]);
+
+  const openResetModal = useCallback(() => setIsResetModalOpen(true), []);
 
   const handleExport = useCallback(async () => {
     if (!cardRef.current) return;
@@ -134,7 +143,7 @@ export default function App() {
             title={title}
             onTitleChange={setTitle}
             onExport={handleExport}
-            onReset={handleReset}
+            onReset={openResetModal}
             onShuffle={handleShuffle}
             isExporting={isExporting}
             selectedCell={cells.find(c => c.id === selectedCellId) || null}
@@ -143,6 +152,14 @@ export default function App() {
           />
         </div>
       </main>
+
+      {/* Reset Confirmation Modal */}
+      <ConfirmModal
+        isOpen={isResetModalOpen}
+        onClose={() => setIsResetModalOpen(false)}
+        onConfirm={handleReset}
+        font={theme.font}
+      />
     </div>
   );
 }
