@@ -17,6 +17,7 @@ interface ControlPanelProps {
 }
 
 const FONT_OPTIONS = [
+  { label: 'Brat (Arial)', value: "'Arial', sans-serif" },
   { label: 'Handwritten Madness', value: "'Handwritten Madness', cursive" },
   { label: 'Ramidots', value: "'Ramidots', cursive" },
   { label: 'My Kids Handwritten', value: "'My Kids Handwritten', cursive" },
