@@ -15,9 +15,19 @@ export default function App() {
   const [isExporting, setIsExporting] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
+  const [selectedCellId, setSelectedCellId] = useState<number | null>(null);
+
   const handleTextChange = useCallback((id: number, text: string) => {
     setCells((prev) => prev.map((c) => (c.id === id ? { ...c, text } : c)));
   }, [setCells]);
+
+  const handleUpdateCellStyle = useCallback((id: number, styles: Partial<BingoCellData>) => {
+    setCells((prev) => prev.map((c) => (c.id === id ? { ...c, ...styles } : c)));
+  }, [setCells]);
+
+  const handleSelectCell = useCallback((id: number | null) => {
+    setSelectedCellId(id);
+  }, []);
 
   const handleToggleMark = useCallback((id: number) => {
     setMarkedCells((prev) => {
@@ -107,6 +117,8 @@ export default function App() {
             title={title}
             markedCells={markedCells}
             onToggleMark={handleToggleMark}
+            selectedCellId={selectedCellId}
+            onSelectCell={handleSelectCell}
           />
 
           {/* Control Panel */}
@@ -119,6 +131,9 @@ export default function App() {
             onReset={handleReset}
             onShuffle={handleShuffle}
             isExporting={isExporting}
+            selectedCell={cells.find(c => c.id === selectedCellId) || null}
+            onUpdateCellStyle={handleUpdateCellStyle}
+            onCloseCellSettings={() => handleSelectCell(null)}
           />
         </div>
       </main>

@@ -9,12 +9,14 @@ interface BingoGridProps {
   title: string;
   markedCells: Set<number>;
   onToggleMark: (id: number) => void;
+  selectedCellId: number | null;
+  onSelectCell: (id: number | null) => void;
 }
 
 const LETTERS = ['B', 'I', 'N', 'G', 'O'];
 
 const BingoGrid = forwardRef<HTMLDivElement, BingoGridProps>(
-  ({ cells, onTextChange, theme, title, markedCells, onToggleMark }, ref) => {
+  ({ cells, onTextChange, theme, title, markedCells, onToggleMark, selectedCellId, onSelectCell }, ref) => {
     return (
       <div
         ref={ref}
@@ -96,6 +98,8 @@ const BingoGrid = forwardRef<HTMLDivElement, BingoGridProps>(
               isMarked={markedCells.has(cell.id)}
               onToggleMark={onToggleMark}
               cellIndex={idx}
+              isSelected={selectedCellId === cell.id}
+              onSelect={() => onSelectCell(cell.id)}
             />
           ))}
         </div>
